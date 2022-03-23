@@ -9,16 +9,17 @@ import {
 	Button,
 	Input,
 	useDisclosure,
+	Box,
 } from "@chakra-ui/react";
 import { useRef } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-function DrawerExample() {
+const DrawerExample = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const btnRef = useRef();
 
 	return (
-		<>
+		<Box>
 			<Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
 				<GiHamburgerMenu />
 			</Button>
@@ -29,7 +30,7 @@ function DrawerExample() {
 				finalFocusRef={btnRef}
 			>
 				<DrawerOverlay />
-				<DrawerContent>
+				<DrawerContent h="100vh">
 					<DrawerCloseButton />
 					<DrawerHeader>Create your account</DrawerHeader>
 
@@ -45,8 +46,8 @@ function DrawerExample() {
 					</DrawerFooter>
 				</DrawerContent>
 			</Drawer>
-		</>
+		</Box>
 	);
-}
+};
 
 export default DrawerExample;
